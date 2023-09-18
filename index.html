@@ -35,6 +35,8 @@
             >
           </li>
         </ul>
+        <button id="saveButton">Guardar Progreso</button>
+        <button id="resetButton">Restablecer Tareas</button>
       </section>
       <section id="day2" class="day">
         <h2>Día 2</h2>
@@ -60,6 +62,8 @@
             >
           </li>
         </ul>
+        <button id="saveButton">Guardar Progreso</button>
+        <button id="resetButton">Restablecer Tareas</button>
       </section>
       <section id="day2" class="day">
         <h2>Día 2</h2>
@@ -85,6 +89,8 @@
             >
           </li>
         </ul>
+        <button id="saveButton">Guardar Progreso</button>
+        <button id="resetButton">Restablecer Tareas</button>
       </section>
       <section id="day3" class="day">
         <h2>Día 3</h2>
@@ -110,6 +116,8 @@
             >
           </li>
         </ul>
+        <button id="saveButton">Guardar Progreso</button>
+        <button id="resetButton">Restablecer Tareas</button>
       </section>
       <section id="day4" class="day">
         <h2>Día 4</h2>
@@ -135,6 +143,8 @@
             >
           </li>
         </ul>
+        <button id="saveButton">Guardar Progreso</button>
+        <button id="resetButton">Restablecer Tareas</button>
       </section>
       <section id="day5" class="day">
         <h2>Día 5</h2>
@@ -160,6 +170,8 @@
             >
           </li>
         </ul>
+        <button id="saveButton">Guardar Progreso</button>
+        <button id="resetButton">Restablecer Tareas</button>
       </section>
       <section id="day6" class="day">
         <h2>Día 6</h2>
@@ -185,6 +197,8 @@
             >
           </li>
         </ul>
+        <button id="saveButton">Guardar Progreso</button>
+        <button id="resetButton">Restablecer Tareas</button>
       </section>
       <section id="day7" class="day">
         <h2>Día 7</h2>
@@ -210,9 +224,42 @@
             >
           </li>
         </ul>
+        <button id="saveButton">Guardar Progreso</button>
+        <button id="resetButton">Restablecer Tareas</button>
       </section>
-      <!-- Repite esta sección para cada día de la semana -->
-      <!-- Cambia los números y etiquetas correspondientes para cada día -->
     </main>
+    <script>
+      // Obtener referencias a los elementos HTML
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      const saveButton = document.getElementById("saveButton");
+      const resetButton = document.getElementById("resetButton");
+
+      // Cargar el progreso guardado al cargar la página
+      window.addEventListener("load", () => {
+        checkboxes.forEach((checkbox, index) => {
+          const isChecked = localStorage.getItem(`day${index + 1}`);
+          if (isChecked === "true") {
+            checkbox.checked = true;
+          }
+        });
+      });
+
+      // Función para guardar el progreso
+      saveButton.addEventListener("click", () => {
+        checkboxes.forEach((checkbox, index) => {
+          localStorage.setItem(`day${index + 1}`, checkbox.checked);
+        });
+        alert("Progreso guardado.");
+      });
+
+      // Función para restablecer todas las tareas
+      resetButton.addEventListener("click", () => {
+        checkboxes.forEach((checkbox, index) => {
+          checkbox.checked = false;
+          localStorage.setItem(`day${index + 1}`, false);
+        });
+        alert("Todas las tareas han sido restablecidas.");
+      });
+    </script>
   </body>
 </html>
