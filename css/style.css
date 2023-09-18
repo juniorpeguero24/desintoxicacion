@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f0f0f0;
+  background-color: #f7f7f7;
 }
 
 header {
@@ -10,6 +10,7 @@ header {
   color: white;
   text-align: center;
   padding: 20px;
+  font-size: 24px;
 }
 
 main {
@@ -23,10 +24,14 @@ main {
 
 .day {
   margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
 }
 
 h2 {
   margin-bottom: 10px;
+  font-size: 20px;
 }
 
 ul {
@@ -36,14 +41,31 @@ ul {
 
 li {
   margin-bottom: 10px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
 }
 
 input[type="checkbox"] {
   margin-right: 10px;
+  transform: scale(1.5);
 }
 
 label {
-  vertical-align: middle;
+  font-size: 16px;
 }
 
-/* Estilos adicionales según sea necesario */
+button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #555;
+}
