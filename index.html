@@ -227,6 +227,8 @@
         <button id="saveButton">Guardar Progreso</button>
         <button id="resetButton">Restablecer Tareas</button>
       </section>
+      <!-- Botón para restablecer todas las tareas -->
+      <button id="resetAllButton">Restablecer Todas las Tareas</button>
     </main>
     <script>
       // Obtener referencias a los elementos HTML
@@ -254,6 +256,14 @@
 
       // Función para restablecer todas las tareas
       resetButton.addEventListener("click", () => {
+        checkboxes.forEach((checkbox, index) => {
+          checkbox.checked = false;
+          localStorage.setItem(`day${index + 1}`, false);
+        });
+        alert("Todas las tareas han sido restablecidas.");
+      });
+      // Función para restablecer todas las tareas
+      resetAllButton.addEventListener("click", () => {
         checkboxes.forEach((checkbox, index) => {
           checkbox.checked = false;
           localStorage.setItem(`day${index + 1}`, false);
